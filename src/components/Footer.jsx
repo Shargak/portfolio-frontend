@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="footer">
-      <p>© 2026 Antonio. Todos los derechos reservados.</p>
+      <p>© 2026 Antonio. Portfolio desarrollado con React.</p>
     </footer>
   )
 }
