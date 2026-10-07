@@ -23,22 +23,22 @@ function About() {
 
         <div className="about-details">
           <div>
-            <span>01</span>
+            
             <p>JavaScript</p>
           </div>
 
           <div>
-            <span>02</span>
+            
             <p>React</p>
           </div>
 
           <div>
-            <span>03</span>
+            
             <p>Responsive Design</p>
           </div>
 
           <div>
-            <span>04</span>
+            
             <p>Git y GitHub</p>
           </div>
         </div>
