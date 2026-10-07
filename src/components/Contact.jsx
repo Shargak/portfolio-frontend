@@ -1,78 +1,111 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 
 function Contact() {
+  const [state, handleFormspreeSubmit] = useForm('xkjonlwk')
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
-  const [success, setSuccess] = useState(false)
 
- function handleSubmit(event) {
-  event.preventDefault()
+  useEffect(() => {
+    if (state.succeeded) {
+      setName('')
+      setEmail('')
+      setMessage('')
+    }
+  }, [state.succeeded])
 
-  if (!name || !email || !message) {
-    return
-  }
-
-  console.log({
-    name,
-    email,
-    message
-  })
-
-  setSuccess(true)
-
-  setName('')
-  setEmail('')
-  setMessage('')
-} function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
 
-    console.log({
-      name,
-      email,
-      message
-    })
-    setSuccess(true)
+    if (!name || !email || !message) {
+      return
+    }
+
+    await handleFormspreeSubmit(event)
   }
 
   return (
-    <section id="contacto">
-      <h2>Contacto</h2>
+    <section id="contacto" className="contact-section">
+      <div className="contact-info">
+        <p className="section-label">Contacto</p>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Nombre</label>
+        <h2>¿Hablamos?</h2>
 
-        <input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
+        <p>
+          Si quieres contactar conmigo para una oportunidad laboral,
+          colaboración o proyecto, puedes escribirme desde este formulario.
+        </p>
+      </div>
 
-        <label htmlFor="email">Email</label>
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Nombre</label>
 
-        <input
-          id="email"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
+          <input
+            id="name"
+            name="name"
+            type="text"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            required
+          />
+        </div>
 
-        <label htmlFor="message">Mensaje</label>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
 
-        <textarea
-          id="message"
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
-        />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required
+          />
 
-        <button type="submit">
-          Enviar
+          <ValidationError
+            prefix="Email"
+            field="email"
+            errors={state.errors}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="message">Mensaje</label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            value={message}
+            onChange={(event) => setMessage(event.target.value)}
+            required
+          />
+
+          <ValidationError
+            prefix="Mensaje"
+            field="message"
+            errors={state.errors}
+          />
+        </div>
+
+        <ValidationError errors={state.errors} />
+
+        <button
+          type="submit"
+          className="btn btn-primary"
+          disabled={state.submitting}
+        >
+          {state.submitting ? 'Enviando...' : 'Enviar mensaje'}
         </button>
-        
-        {success && (
-  <p>Mensaje enviado correctamente.</p>
-)}
+
+        {state.succeeded && (
+          <p className="success-message">
+            Mensaje enviado correctamente.
+          </p>
+        )}
       </form>
     </section>
   )

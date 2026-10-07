@@ -1,10 +1,14 @@
+import portfolioImage from '../assets/projects/portfolio.png'
+import tasksImage from '../assets/projects/tasks.jpg'
+import shopImage from '../assets/projects/shop.jpg'
+
 const projects = [
     {
         id: 1,
         title: 'Portfolio React',
         description: 'Portfolio personal desarrollado con React.',
         technologies: ['React', 'JavaScript', 'CSS'],
-        image:'/project-portfolio.jpg',
+        image: portfolioImage,
         github:'#',
         demo:'#'
     
@@ -14,7 +18,7 @@ const projects = [
         title: 'Gestor de tareas',
         description: 'Aplicación para gestionar tareas.',
         technologies: ['React', 'JavaScript', 'LocalStorage'],
-        image:'/project-tasks.jpg',
+        image: tasksImage,
         github:'#',
         demo:'#'
 
@@ -24,7 +28,7 @@ const projects = [
         title: 'Tienda online',
         description: 'Ecommerce desarrollada con React.',
         technologies: ['React', 'JavaScript', 'API'],
-        image:'/project-shop.jpg',
+        image: shopImage,
         github:'#',
         demo:'#'
     }

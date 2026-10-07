@@ -22,6 +22,32 @@ function Hero() {
           <a href="#contacto" className="btn btn-secondary">
             Contactar
           </a>
+
+          <a
+            href="/docs/cv-antonio-baldallo.pdf"
+            className="btn btn-secondary"
+            download
+          >
+            Descargar CV
+          </a>
+        </div>
+
+        <div className="hero-social">
+          <a
+            href="TU_URL_GITHUB"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="TU_URL_LINKEDIN"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
         </div>
       </div>
     </section>

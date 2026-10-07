@@ -14,25 +14,38 @@ function ProjectCard({
         className="project-image"
       />
 
-      <h3>{title}</h3>
+      <div className="project-content">
+        <h3>{title}</h3>
 
-      <p>{description}</p>
+        <p>{description}</p>
 
-      <div className="tech-list">
-        {technologies.map((technology) => (
-          <span key={technology}>
-            {technology}
-          </span>
-        ))}
-      </div>
+        <div className="tech-list">
+          {technologies.map((technology) => (
+            <span key={technology}>
+              {technology}
+            </span>
+          ))}
+        </div>
 
-      <div className="project-links">
-        <a href={demo} target="_blank" rel="noreferrer"> 
-          Ver demo
-        </a>
-        <a href={github} target="_blank" rel="noreferrer">
-          GitHub
-        </a>
+        <div className="project-links">
+          <a
+            href={demo}
+            target="_blank"
+            rel="noreferrer"
+            className="project-button project-button-primary"
+          >
+            Ver demo
+          </a>
+
+          <a
+            href={github}
+            target="_blank"
+            rel="noreferrer"
+            className="project-button"
+          >
+            GitHub
+          </a>
+        </div>
       </div>
     </article>
   )
