@@ -34,7 +34,7 @@ function Hero() {
 
         <div className="hero-social">
           <a
-            href="TU_URL_GITHUB"
+            href="https://github.com/Shargak"
             target="_blank"
             rel="noreferrer"
           >
@@ -42,7 +42,9 @@ function Hero() {
           </a>
 
           <a
-            href="TU_URL_LINKEDIN"
+            href="https://www.linkedin.com/in/antonio-baldallo-ferrete
+
+"
             target="_blank"
             rel="noreferrer"
           >
